@@ -29,16 +29,14 @@ for i2=1:max_iter
 if theta>=0
     d=1;
     temp_var1 = x0 - y0*d*2^(-(i2-1));
-    temp_var2 = y0 + x0*d*2^(-(i2-1));
+    y0 = y0 + x0*d*2^(-(i2-1));
     x0=temp_var1;
-    y0=temp_var2;
     theta = theta - d*angle_deg(i2);
 elseif theta<0
     d=-1;
     temp_var1 = x0 - y0*d*2^(-(i2-1));
-    temp_var2 = y0 + x0*d*2^(-(i2-1)); 
+    y0 = y0 + x0*d*2^(-(i2-1)); 
     x0=temp_var1;
-    y0=temp_var2;
     theta = theta - d*angle_deg(i2);
 end
 end
