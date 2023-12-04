@@ -17,11 +17,7 @@ itr_num = 0:max_iter-1;
 for i1=1:max_iter
     angle_deg(i1)=(180/pi)*atan(1/2^(i1-1));
 end
-multipliers=ones(1,max_iter+1);
-for i3=1:max_iter
-    multipliers(i3+1)=multipliers(i3)*1/sqrt(1+(2^(-2*(i3-1))));
-end
-multipliers(1)=[];
+
 %--------------------------------------------------------------------------
 % initial coordinates of X & Y
 x0=1; y0=0; 
