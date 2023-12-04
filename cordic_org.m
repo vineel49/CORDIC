@@ -17,11 +17,14 @@ itr_num = 0:max_iter-1;
 for i1=1:max_iter
     angle_deg(i1)=(180/pi)*atan(1/2^(i1-1));
 end
-
+multipliers = ones(1,max_iter+1);
+for i1=1:max_iter
+    multipliers(i1+1)=multipliers(i1)*1/sqrt(1+2^(-2*(i1-1)));
+end
+multipliers(1)=[];
 %--------------------------------------------------------------------------
 % initial coordinates of X & Y
 x0=1; y0=0; 
-
 for i2=1:max_iter
 if theta>=0
     d=1;
@@ -39,9 +42,6 @@ elseif theta<0
     theta = theta - d*angle_deg(i2);
 end
 end
-cosine_theta = x0/sqrt(x0^2+y0^2);
-sine_theta = y0/sqrt(x0^2+y0^2);
+cosine_theta = x0*multipliers(max_iter);
+sine_theta = y0*multipliers(max_iter);
 fprintf('cosine(theta) is %f and sin(theta) is %f',cosine_theta,sine_theta)
-
-
-
