@@ -8,7 +8,6 @@ clear all
 clc
 max_iter = 20; % maximum number of iterations allowed in CORDIC algorithm/PRECISION
 theta = 40; % in degrees
-
 %--------------------------------------------------------------------------
 %                      LOOKUP TABLE / PRE-COMPUTATIONS
 angle_deg=zeros(1,max_iter);
