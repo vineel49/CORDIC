@@ -14,11 +14,9 @@ theta = 40; % in degrees
 %                      LOOKUP TABLE / PRE-COMPUTATIONS
 angle_deg=zeros(1,max_iter);
 itr_num = 0:max_iter-1;
-for i1=1:max_iter
-    angle_deg(i1)=(180/pi)*atan(1/2^(i1-1));
-end
 multipliers = ones(1,max_iter+1);
 for i1=1:max_iter
+    angle_deg(i1)=(180/pi)*atan(1/2^(i1-1));
     multipliers(i1+1)=multipliers(i1)*1/sqrt(1+2^(-2*(i1-1)));
 end
 multipliers(1)=[];
